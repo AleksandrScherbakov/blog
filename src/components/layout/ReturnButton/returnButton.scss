@@ -1,0 +1,26 @@
+@use "../../../styles/layout/lib";
+.returnButton{
+  @media screen and (max-width: 768px){
+    display: none;
+  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  //background-color: #25202d;
+  padding-top: 150px;
+  padding-left: 30px;
+  cursor: pointer;
+  transition: lib.$defaultTransition;
+  color: #bdbdbd;
+  &:hover{
+    color: lib.$linkHover;
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+  svg {
+    $size: 24px;
+    width: $size;
+    height: $size;
+  }
+}

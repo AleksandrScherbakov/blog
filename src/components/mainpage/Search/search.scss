@@ -1,0 +1,55 @@
+@use '../../../styles/layout/input';
+@use '../../../styles/layout/button';
+.search{
+  width: 100vw;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../../images/parallax.jpeg') 0 0 no-repeat fixed;
+  background-size: cover;
+  overflow: hidden;
+  margin: 0;
+  position: relative;
+  h3{
+    text-transform: capitalize;
+    color: #f2f2f2;
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: 700;
+    margin: 0 0 15px;
+  }
+  &__container{
+    &__box{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: .5rem;
+      &__field{
+        display: flex;
+        flex: 1;
+        width: 100%;
+        &__input{
+          @extend .input;
+          color: white;
+          &::placeholder{
+            color: white;
+          }
+          background-color: rgba(0, 0, 0, 0.5);
+          border: 1px solid rgba(0, 0, 0, 0.7);
+          padding: 0 16px;
+          height: 52px;
+          line-height: 52px;
+          max-width: 600px;
+          width: auto;
+          flex: 1;
+        }
+      }
+      &__button{
+        @extend .button;
+        padding: 0 40px;
+        line-height: 52px;
+      }
+    }
+  }
+}

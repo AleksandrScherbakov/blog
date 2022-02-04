@@ -1,0 +1,114 @@
+@use '../../../../styles/layout/lib';
+@use '../../../../styles/layout/link';
+.postCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  max-width: 350px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: lib.$defaultTransition;
+  &:hover{
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.05);
+  }
+  border-radius: 3px;
+  overflow: hidden;
+  &__image{
+    cursor: pointer;
+    width: 100%;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  h2 a{
+    font-size: 24px;
+    color: #222222;
+    font-weight: 600;
+    line-height: 1.5em;
+    &:hover{
+      color: lib.$myBlue
+    }
+  }
+  &__content{
+    padding: 20px;
+    height: 160px;
+    overflow: hidden;
+    &__meta{
+      color: #616161;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 11px;
+      &__author{
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 5px;
+        &__link{
+          @extend .link;
+          color: inherit;
+          display: inline-flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          gap: 5px;
+          &:hover{
+            color: lib.$myBlue;
+          }
+          &__icon {
+            $size: 10px;
+            width: $size;
+            height: $size;
+            color: inherit;
+          }
+        }
+      }
+      &__tags {
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 5px;
+        &__tag{
+          @extend .link;
+          &:hover{
+            color: lib.$myBlue !important;
+          }
+        }
+      }
+    }
+    &__annotation{
+      padding: 0;
+      text-overflow: ellipsis;
+      position: relative;
+      display: block;
+      overflow: hidden;
+      font-size: 14px;
+      line-height: 1.6em;
+      font-weight: 400;
+      margin: 7px 0 0;
+      color: #5a5a5a;
+      word-wrap: break-word;
+    }
+  }
+}
+
+//.postCard--horizontal{
+//  @extend .postCard;
+//  flex-direction: row;
+//  max-width: 700px;
+//  &__image{
+//    width: 200px;
+//    height: 200px;
+//  }
+//  &__content{
+//    padding: 30px;
+//    height: 160px;
+//    &__annotation{
+//      max-width: 300px;
+//    }
+//  }
+//}

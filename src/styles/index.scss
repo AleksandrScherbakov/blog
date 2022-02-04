@@ -1,0 +1,19 @@
+@use "./fonts/fonts";
+@use "./layout/button";
+@use "./layout/link";
+@use "./layout/input";
+* {
+  font-family: "Quicksand", sans-serif;
+  scroll-behavior: smooth;
+  &::selection{
+    background-color: rgba(210, 78, 222, 0.1);
+  }
+}
+body, html {
+  padding: 0;
+  margin: 0;
+  //height: 200vh;
+}
+.searchArea {
+  margin-top: 68px
+}

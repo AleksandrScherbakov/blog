@@ -1,0 +1,50 @@
+// colors
+$error: red;
+$myBlue: #3600e6;
+$linkHover: #51b6ff;
+$footerMain: #25202d;
+$footerBottom: #242634;
+$footerText: #aaaaaa;
+// transitions
+$defaultTransition: all .17s ease;
+$textTransition: all .1s ease;
+
+@mixin defaultPagePaddingWidth {
+  width: calc(100vw - 240px);
+  padding: 0 120px;
+  @media screen and (max-width: 768px){
+    width: calc(100vw - 120px);
+    padding: 0 60px;
+  }
+  @media screen and (max-width: 425px){
+    width: calc(100vw - 16px);
+    padding: 0 8px;
+  }
+}
+
+@mixin withBottomPaddingWidth {
+  width: calc(100vw - 240px);
+  padding: 30px 120px;
+  @media screen and (max-width: 768px){
+    width: calc(100vw - 120px);
+    padding: 15px 60px;
+  }
+  @media screen and (max-width: 425px){
+    width: calc(100vw - 16px);
+    padding: 15px 8px;
+  }
+}
+
+
+@mixin PostPaddingWidth {
+  width: calc(100vw - 240px);
+  padding: 140px 120px;
+  @media screen and (max-width: 768px){
+    width: calc(100vw - 120px);
+    padding: 140px 60px;
+  }
+  @media screen and (max-width: 425px){
+    width: calc(100vw - 16px);
+    padding: 140px 8px;
+  }
+}

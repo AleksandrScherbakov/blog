@@ -1,0 +1,14 @@
+@use "lib";
+
+.link {
+  text-decoration: none;
+  transition: lib.$textTransition;
+  color: #fff;
+  &:hover {
+    color: lib.$linkHover;
+  }
+}
+
+.activeLink{
+  color: lib.$linkHover !important;
+}

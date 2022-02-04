@@ -1,0 +1,37 @@
+@use '../../../styles/layout/lib';
+@use "../../../styles/layout/button";
+.offer {
+  display: flex;
+  //width: calc(100vw - 240px);
+  //padding: 30px 120px;
+  @include lib.withBottomPaddingWidth;
+  height: auto;
+  background-color: lib.$myBlue;
+  text-align: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  h3{
+    display: block;
+    font-size: 27px;
+    color: white;
+    font-weight: bold;
+    margin: 15px 0 20px
+  }
+  p{
+    font-size: 14px;
+    color: #f2f2f2;
+    line-height: 24px;
+    margin: 0;
+  }
+  &__button{
+    @extend .button;
+    background-color: #222222;
+    margin: 10px 0 0;
+    padding: 12px 24px;
+    font-size: 16px;
+    &:hover{
+      background-color: #111111;
+    }
+  }
+}

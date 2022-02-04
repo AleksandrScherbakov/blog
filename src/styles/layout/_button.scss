@@ -1,0 +1,18 @@
+@use "lib";
+@use "sass:color";
+
+.button {
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: lib.$myBlue;
+  color: white;
+  text-align: center;
+  //text-transform: capitalize;
+  padding: 18px 20px;
+  display: inline-block;
+  border: none;
+  transition: lib.$defaultTransition;
+  &:hover{
+    background-color: color.change(lib.$myBlue, $blackness: 20%);
+  }
+}
