@@ -2,6 +2,7 @@
 @use "./layout/button";
 @use "./layout/link";
 @use "./layout/input";
+@use "./layout/lib";
 * {
   font-family: "Quicksand", sans-serif;
   scroll-behavior: smooth;
@@ -14,6 +15,33 @@ body, html {
   margin: 0;
   //height: 200vh;
 }
+
 .searchArea {
   margin-top: 68px
+}
+
+.about, .contact, .disclaimer, .privacy, .pageNotFound{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  @include lib.PostPaddingWidth;
+}
+
+.contact {
+  .footer__main__contactInfo{
+    .link {
+      color: #616161;
+      &:hover{
+        color: lib.$linkHover
+      }
+    }
+  }
+  .footer__main__contactForm{
+    input, textarea {
+      background-color: rgba(0, 0, 0, 0.025);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      color: black;
+    }
+  }
 }

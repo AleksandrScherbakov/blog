@@ -35,6 +35,30 @@ module.exports = {
       `gatsby-plugin-sharp`,
       `gatsby-transformer-sharp`,
       "gatsby-plugin-sass",
-      "gatsby-transformer-remark"
+      "gatsby-transformer-remark",
+      {
+          resolve: `gatsby-plugin-manifest`,
+          options: {
+              name: `Blog - Alexandr Scherbakov`,
+              short_name: `S.Blog`,
+              description: 'Personal blog - application design, web design, web development, brand promotion',
+              lang: 'en',
+              start_url: `/`,
+              background_color: `#ffffff`,
+              theme_color: `#3600e6`,
+              display: `standalone`,
+              icon: './src/images/icon.png',
+              icon_options: {
+                  purpose: `any maskable`,
+              },
+              crossOrigin: `use-credentials`,
+          },
+      },
+      {
+          resolve: `gatsby-plugin-offline`,
+          options: {
+              precachePages: [`/`, `/all`],
+          },
+      },
   ]
 };

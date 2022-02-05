@@ -9,24 +9,34 @@ const LinkContainer = ({allContentfulTag}) => {
             {
                 allContentfulTag?.edges?.length > 0 && allContentfulTag?.edges?.map(n => (
                     <li className={'linkContainer__item'} key={n.node.id}>
-                        <Link to={`/browse/${n.node.name}`} className={'linkContainer__item__link'} activeClassName="activeLink">{n.node.name}</Link>
+                        <Link to={`/browse/${n.node.name}`} className={'linkContainer__item__link'} activeClassName="activeLink" style={{color: n.node.color}}>{n.node.name}</Link>
                     </li>
                 ))
             }
+            <li className={'linkContainer__item'}>
+                <span className={'linkContainer__item__divider'}/>
+            </li>
+            <li className={'linkContainer__item'}>
+                <Link to={'/about'} className={'linkContainer__item__link'} activeClassName="activeLink">About</Link>
+            </li>
+            <li className={'linkContainer__item'}>
+                <Link to={'/contact'} className={'linkContainer__item__link'} activeClassName="activeLink">Contact Us</Link>
+            </li>
         </ul>
     )
 }
 
 LinkContainer.propTypes = {
-    allContentfulTag: {
-        edges: [{
-            node: {
-                id: PropTypes.string,
-                name: PropTypes.string,
-                color: PropTypes.string
-            }
-        }]
-    }
+    allContentfulTag: PropTypes.any
+    // allContentfulTag: {
+    //     edges: [{
+    //         node: {
+    //             id: PropTypes.string,
+    //             name: PropTypes.string,
+    //             color: PropTypes.string
+    //         }
+    //     }]
+    // }
 }
 
 
