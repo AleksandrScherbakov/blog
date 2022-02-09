@@ -62,7 +62,7 @@ export const ContactForm = () => {
                         <ErrorMessage name={'email'}>{msg => <span className={'formFieldError formFieldError--email'}>{msg}</span>}</ErrorMessage>
                         <ErrorMessage name={'message'}>{msg => <span className={'formFieldError formFieldError--message'}>{msg}</span>}</ErrorMessage>
                     </div>
-                    <Form>
+                    <Form method={"POST"} action={"/"}>
                         <label htmlFor="name" hidden={true}>Name</label>
                         <Field id={'name'} name={'name'} placeholder={'Name'} className={'footer__main__contactForm__field--name'} disabled={loading}/>
                         <label htmlFor="email" hidden={true}>Email *</label>
