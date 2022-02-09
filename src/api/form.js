@@ -23,7 +23,10 @@ export default async function formHandler(req, res){
         second: 'numeric'
     })}
     `
-    const botResponse = await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${process.env.TELEGRAM_ADMIN_ID}&text=${makeMessage(req.body)}`)
-    console.log(botResponse)
-    return res.status(200).json('OK')
+    const botResponse = await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${process.env.TELEGRAM_ADMIN_ID}&text=${makeMessage(req.body)}`).then(res => res.status)
+    if (botResponse === 200){
+        return res.status(200).json("OK")
+    } else {
+        return res.status(500).json("Processing error");
+    }
 }

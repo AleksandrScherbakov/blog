@@ -1,15 +1,25 @@
 import React from "react";
 import "./hero.scss"
+import {useNotifications} from "reapop";
 const Hero = () => {
+    const {notify} = useNotifications();
     const scrollOneScreen = () => typeof window !== undefined && window.scrollBy(0, window.innerHeight - 150)
+    const primaryAction = async () => {
+        await notify({
+            message: "Contact me via form / social networks",
+            status: "info",
+            dismissAfter: 5000
+        });
+        typeof window !== undefined && window.scrollBy(0, window.document.body.offsetHeight - window.innerHeight)
+    }
     return (
         <div className={'hero'}>
             <div className={'hero__textBlock'}>
                 <h1 className={'hero__textBlock__mainText'}>Welcome to S.Blog</h1>
-                <h4 className={'hero__textBlock__subText'}>A Distribution by Marval Network Where You Will Find Everything Productive!</h4>
+                <h2 className={'hero__textBlock__subText'}>A Gatsby-build blog by <a href={'https://t.me/scherbakov_a/'} target={'_blank'} referrerPolicy={'no-referrer'} rel="noopener noreferrer" className={'hero__textBlock__subText__link'}>Alexandr Scherbakov</a></h2>
             </div>
             <div className="hero__actions">
-                <button className={'hero__actions__primaryActionButton'}>Become a member</button>
+                <button className={'hero__actions__primaryActionButton'} onClick={primaryAction}>Become a member</button>
             </div>
             <div className="hero__pointer" onMouseEnter={scrollOneScreen}/>
             <svg className="hero__waves" preserveAspectRatio="none" viewBox="0 24 150 28 "

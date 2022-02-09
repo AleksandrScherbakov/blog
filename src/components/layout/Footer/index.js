@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Formik, Field, Form, ErrorMessage} from "formik";
 import {useNotifications} from 'reapop'
 import './footer.scss'
@@ -6,6 +6,7 @@ import {Link} from "gatsby";
 
 export const ContactForm = () => {
     const {notify} = useNotifications()
+    const [loading, setLoading] = useState(false);
     const validate = values => {
         const errors = {};
         if (!values.email) {
@@ -19,24 +20,31 @@ export const ContactForm = () => {
         return errors;
     };
     const handleForm = async (values, {resetForm}) => {
-        const res = await window
-            .fetch(`/api/form`, {
-                method: `POST`,
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(values),
-            })
-        // .then(res => res.json())
-        if(res.ok){
-            notify({message: 'Form sent', status: 'success'})
-            resetForm({values: {
-                    name: '',
-                    email: '',
-                    message: ''
-                }})
-        } else {
+        try{
+            setLoading(true);
+            const res = await window
+                .fetch(`/api/form`, {
+                    method: `POST`,
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(values),
+                })
+            // .then(res => res.json())
+            if(res.ok){
+                notify({message: 'Form sent', status: 'success'})
+                resetForm({values: {
+                        name: '',
+                        email: '',
+                        message: ''
+                    }})
+            } else {
+                throw new Error("Bad server response");
+            }
+        } catch (e){
             notify({message: 'Form sending error', status: 'error'})
+        } finally {
+            setLoading(false)
         }
     }
     return (
@@ -56,12 +64,12 @@ export const ContactForm = () => {
                     </div>
                     <Form>
                         <label htmlFor="name" hidden={true}>Name</label>
-                        <Field id={'name'} name={'name'} placeholder={'Name'} className={'footer__main__contactForm__field--name'}/>
+                        <Field id={'name'} name={'name'} placeholder={'Name'} className={'footer__main__contactForm__field--name'} disabled={loading}/>
                         <label htmlFor="email" hidden={true}>Email *</label>
-                        <Field required={true} id={'email'} name={'email'} type={'email'} placeholder={'Email *'} className={'footer__main__contactForm__field--email'}/>
+                        <Field required={true} id={'email'} name={'email'} type={'email'} placeholder={'Email *'} className={'footer__main__contactForm__field--email'} disabled={loading}/>
                         <label htmlFor="message" hidden={true}>Message *</label>
-                        <Field required={true} component={'textarea'} rows={5} cols={25}  id={'message'} name={'message'} placeholder={'Message *'} className={'footer__main__contactForm__field--message'}/>
-                        <button type="submit" className={'footer__main__contactForm__submitButton'}>Send</button>
+                        <Field required={true} component={'textarea'} rows={5} cols={25}  id={'message'} name={'message'} placeholder={'Message *'} className={'footer__main__contactForm__field--message'} disabled={loading}/>
+                        <button type="submit" className={'footer__main__contactForm__submitButton'} disabled={loading}>Send</button>
                     </Form>
                 </>
             </Formik>
@@ -72,7 +80,7 @@ export const ContactForm = () => {
 export const ContactInfo = () => (
     <div className={'footer__main__contactInfo'}>
         <h3>Contact Info</h3>
-        <p>For any business pursuit or merchandising please feel free to contact at our mail id - <a className={'link'} href="mailto:scherbakov.web@gmail.com">scherbakov.web@gmail.com</a></p>
+        <p>For any business matters or job offers please feel free to contact at my mail id - <a className={'link'} href="mailto:scherbakov.web@gmail.com">scherbakov.web@gmail.com</a></p>
         <ul className={'footer__main__contactInfo__socialMedia'}>
             <li className={'footer__main__contactInfo__socialMedia__item'}>
                 <a href={'https://www.instagram.com/scherbakov__a/'} target={'_blank'} referrerPolicy={'no-referrer'} rel="noopener noreferrer" className={'link'}>

@@ -1,4 +1,6 @@
 @use "sass:meta";
+@use "../../../styles/layout/link";
+@use "../../../styles/layout/lib";
 @use "../../../styles/layout/button";
 @keyframes move-forever1 {
   0% {
@@ -59,6 +61,19 @@
   }
 }
 
+@keyframes self {
+  from {
+    background-position: 0 0;
+  }
+  50%{
+    background-position: 100% 100%;
+
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
 .hero {
   position: relative;
   width: 100vw;
@@ -71,14 +86,25 @@
   background-size: cover;
   row-gap: 5vh;
   &__textBlock {
-    //width: some value;
     &__mainText, &__subText{
       text-align: center;
       color: white;
     }
-    //&__mainText {
-    //  font-weight: bold;
-    //}
+    &__subText {
+      font-size: 20px;
+      &__link {
+        @extend .link;
+        background: -webkit-linear-gradient(45deg, #00ff0d, #00ffdc);
+        background-size: 400% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: self 4s ease infinite;
+        //color: #00ffdc;
+        //&:hover{
+        //  color: #00ff0d;
+        //}
+      }
+    }
   }
   &__actions {
     &__primaryActionButton {
@@ -115,7 +141,6 @@
   }
   &__waves {
     position: absolute;
-    //overflow: hidden;
     bottom: 0;
     width: 100%;
     height: 60px;

@@ -19,6 +19,7 @@
     justify-content: space-between;
     width: calc(100% - 240px);
     padding: 45px 120px;
+    @include lib.withBottomPaddingWidth;
     @media screen and (max-width: 768px){
       flex-direction: column;
       justify-content: flex-start;
@@ -39,13 +40,6 @@
       @media screen and (max-width: 768px) {
         width: 100%;
       }
-        //width: calc(40% - 120px);
-      //@media screen and (max-width: 768px){
-      //  width: calc(40% - 60px);
-      //}
-      //@media screen and (max-width: 425px){
-      //  width: calc(40% - 8px);
-      //}
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -57,7 +51,6 @@
         align-items: flex-start;
         padding: 0;
         margin: 0;
-        //gap: .5rem;
         &__item {
           display: flex;
           flex: 1;
@@ -81,13 +74,6 @@
       @media screen and (max-width: 768px) {
         width: 100%;
       }
-      //width: calc(60% - 120px);
-      //@media screen and (max-width: 768px){
-      //  width: calc(60% - 60px);
-      //}
-      //@media screen and (max-width: 425px){
-      //  width: calc(60% - 8px);
-      //}
         &__field--name{
           @extend .input;
           float: left;
@@ -118,14 +104,6 @@
         position: relative;
         font-size: 12px;
         color: lib.$error;
-        &--email{
-          //left: calc(100% - 85px);
-          //bottom: 10px;
-        }
-        &--message{
-          //bottom: 0;
-          //right: 0;
-        }
         &:hover{
           cursor: default;
         }

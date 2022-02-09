@@ -6,16 +6,6 @@
   box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
   z-index: 1010;
   @include lib.defaultPagePaddingWidth;
-  //width: calc(100vw - 240px);
-  //padding: 0 120px;
-  //@media screen and (max-width: 768px){
-  //  width: calc(100vw - 120px);
-  //  padding: 0 60px;
-  //}
-  //@media screen and (max-width: 425px){
-  //  width: calc(100vw - 16px);
-  //  padding: 0 8px;
-  //}
   height: 68px;
   top: 0;
   left: 0;
@@ -29,7 +19,6 @@
     justify-content: flex-start;
     align-items: flex-start;
   }
-  //gap: 20rem;
   &__logo {
     color: white;
     text-decoration: none;
@@ -69,7 +58,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: calc(100% - 32px);
     height: 68px;
     &__menuButton{
       display: none;

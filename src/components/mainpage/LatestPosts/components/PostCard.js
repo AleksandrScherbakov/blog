@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { GatsbyImage, getImage} from 'gatsby-plugin-image'
 import './postCard.scss'
 import {Link, navigate} from "gatsby";
-// import {calculateCurrentTimeDifference} from "../../../../utils/dateAgo";
 
 export function PostMeta({post}){
     return (<div className={'postCard__content__meta'}>
@@ -52,7 +51,6 @@ PostMeta.propTypes = {
 
 const PostCard = ({post}) => {
     const image = getImage(post.cover)
-    // const days = calculateCurrentTimeDifference(post.publicationDate).days;
     return (
         <div className={'postCard'}>
             <GatsbyImage image={image} alt={'Banner'}

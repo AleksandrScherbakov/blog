@@ -8,7 +8,6 @@ import {PostMeta} from "../../components/mainpage/LatestPosts/components/PostCar
 import ReturnButton from "../../components/layout/ReturnButton";
 
 function PostTemplate({pageContext}){
-    // const post = data.contentfulBlogPost;
     const post = {...pageContext};
     post.publicationDate = new Date(post.publicationDate).toLocaleDateString()
     const image = getImage(post.cover)
@@ -29,7 +28,6 @@ function PostTemplate({pageContext}){
                         </div>
                         <div className={'post__container__body'}>
                             <div dangerouslySetInnerHTML={{ __html: post.textContent.childMarkdownRemark.html }} />
-                            {/*{post.textContent.textContent}*/}
                         </div>
                     </div>
                 </div>
@@ -37,28 +35,6 @@ function PostTemplate({pageContext}){
         </NotificationsProvider>
     )
 }
-//
-// export const query = graphql`
-//     query($title: String!) {
-//         contentfulBlogPost(title: { eq: $title }) {
-//             id
-//             author
-//             cover {
-//                 gatsbyImageData(placeholder: BLURRED)
-//             }
-//             publicationDate
-//             textContent {
-//                 textContent
-//             }
-//             title
-//             tags {
-//                 id
-//                 name
-//                 color
-//             }
-//         }
-//     }
-// `
 
 PostTemplate.propTypes = {
     // data: PropTypes.any,

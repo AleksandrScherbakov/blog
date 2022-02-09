@@ -2,16 +2,15 @@
 .post{
   position: relative;
   display: flex;
-  @media screen and (max-width: 1250px){
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   @include lib.PostPaddingWidth;
   &__container{
-    width: 100%;
+    width: min-content;
+    min-width: 50vw;
+    @media screen and (max-width: 768px){
+      width: 100%;
+    }
     &__header{
       display: flex;
       flex-direction: column;

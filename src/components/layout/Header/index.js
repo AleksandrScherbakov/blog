@@ -44,7 +44,7 @@ const Header = () => {
     const {allContentfulTag} = useStaticQuery(
         graphql`
             query Pull5FreshTags {
-                allContentfulTag(limit: 5, sort: {order: DESC, fields: updatedAt}) {
+                allContentfulTag(limit: 3, sort: {order: DESC, fields: updatedAt}) {
                     edges {
                         node {
                             id

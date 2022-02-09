@@ -2,8 +2,6 @@
 @use "../../../styles/layout/button";
 .offer {
   display: flex;
-  //width: calc(100vw - 240px);
-  //padding: 30px 120px;
   @include lib.withBottomPaddingWidth;
   height: auto;
   background-color: lib.$myBlue;

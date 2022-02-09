@@ -12,9 +12,13 @@ $textTransition: all .1s ease;
 @mixin defaultPagePaddingWidth {
   width: calc(100vw - 240px);
   padding: 0 120px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 1100px){
     width: calc(100vw - 120px);
     padding: 0 60px;
+  }
+  @media screen and (max-width: 900px){
+    width: calc(100vw - 60px);
+    padding: 0 30px;
   }
   @media screen and (max-width: 425px){
     width: calc(100vw - 16px);
@@ -23,11 +27,15 @@ $textTransition: all .1s ease;
 }
 
 @mixin withBottomPaddingWidth {
-  width: calc(100vw - 240px);
-  padding: 30px 120px;
-  @media screen and (max-width: 768px){
+  width: calc(100vw - 120px);
+  padding: 30px 60px;
+  @media screen and (max-width: 1100px){
     width: calc(100vw - 120px);
-    padding: 15px 60px;
+    padding: 30px 60px;
+  }
+  @media screen and (max-width: 900px){
+    width: calc(100vw - 60px);
+    padding: 15px 30px;
   }
   @media screen and (max-width: 425px){
     width: calc(100vw - 16px);
@@ -38,13 +46,17 @@ $textTransition: all .1s ease;
 
 @mixin PostPaddingWidth {
   width: calc(100vw - 240px);
-  padding: 140px 120px;
-  @media screen and (max-width: 768px){
+  padding: 98px 120px 30px;
+  @media screen and (max-width: 1100px){
     width: calc(100vw - 120px);
-    padding: 140px 60px;
+    padding: 98px 60px 30px;
+  }
+  @media screen and (max-width: 900px){
+    width: calc(100vw - 60px);
+    padding: 98px 40px 30px;
   }
   @media screen and (max-width: 425px){
     width: calc(100vw - 16px);
-    padding: 140px 8px;
+    padding: 98px 8px 30px;
   }
 }

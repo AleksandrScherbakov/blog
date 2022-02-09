@@ -1,7 +1,8 @@
 @use '../../../styles/layout/input';
 @use '../../../styles/layout/button';
 .search{
-  width: 100vw;
+  width: calc(100vw - 16px);
+  padding: 0 8px;
   height: 30vh;
   min-height: 300px;
   display: flex;

@@ -6,7 +6,7 @@ const Offer = () => {
         <div className={'offer'}>
             <h3>Work With Us!</h3>
             <p>
-                Want to get bigger opportunities ? Then here you go, Become a member of Marval Network and work with us! Get several benefits such as Professional growth, open vacation policy and many more. Click below if you are interested.
+                Want to get a website? Then here you go, Submit a form at the bottom of the page or contact me via social networks! Get several benefits such as Fresh technologies stack, creative design and many more. Click below.
             </p>
             <button className={'offer__button'} onClick={scrollDown}>Contact</button>
         </div>
